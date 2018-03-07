@@ -1,0 +1,131 @@
+private  RadarChart mRadarChart;
+    private SparseIntArray factors = new SparseIntArray(6); //chart variables e.g memeory focus etc
+    private SparseIntArray scores = new SparseIntArray(6);  //
+    private ArrayList<RadarEntry> mRadarEntries =new ArrayList<>(); //radarchart entries
+    private ArrayList<IRadarDataSet> dataSets = new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+
+
+    void setRadarChart()
+    {
+        mRadarChart=(RadarChart) findViewById(R.id.radarchart); //initilising rafdar chart
+
+        //settign variable of each point
+        factors.append(1, R.string.peak_brain_score);
+        factors.append(2, R.string.memory);
+        factors.append(3, R.string.problem_solving);
+        factors.append(4, R.string.languages);
+        factors.append(5, R.string.mental_agility);
+        factors.append(6, R.string.focus);
+
+        XAxis xAxis = mRadarChart.getXAxis(); //aquirce instance of xaxis
+        xAxis.setXOffset(0f);
+        xAxis.setYOffset(0f);
+        xAxis.setTextSize(8f);
+
+        // used to return a formatted version of the string to display
+        xAxis.setValueFormatter(new IAxisValueFormatter() {
+
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return mFactors[(int) value % mFactors.length];
+            }
+
+            private String[] mFactors = new String[]{getString(factors.get(1)), getString(factors.get(2)),
+                    getString(factors.get(3)), getString(factors.get(4)), getString(factors.get(5))};
+
+            @Override
+            public int getDecimalDigits() {
+                return 0;
+            }
+        });
+
+
+    }
+
+    private void drawChart() {
+
+        //to draw chart
+        //first build line of entries
+        //then create radardataset from this list and add it to the list of data set
+        //then cretea a data object from this list and add it to the chart
+        //an ivf formatter returns a formatted string for the integer values to display
+
+        mRadarEntries.clear();
+
+        for (int i = 1; i <= 6; i++) {
+            mRadarEntries.add(new RadarEntry(scores.get(i)));
+        }
+
+        RadarDataSet dataSet = new RadarDataSet(mRadarEntries, "");
+        dataSet.setColor(R.color.colorPrimary);
+        dataSet.setDrawFilled(true);
+
+        dataSets.add(dataSet);
+
+        RadarData data = new RadarData(dataSets);
+        data.setValueTextSize(8f);
+
+        data.setValueFormatter(new IValueFormatter() {
+
+            @Override
+            public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+                return String.valueOf((int) value);
+            }
+
+        });
+
+        mRadarChart.setData(data);
+        mRadarChart.invalidate();
+    }
+
+// acttivity xml file
+
+  <?xml version="1.0" encoding="utf-8"?>
+  <RelativeLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:context="com.victor.bobby_000_.peak_mindmap.MainActivity"
+      android:orientation="vertical">
+
+
+      <fragment
+          android:id="@+id/topsection"
+          android:name="com.victor.bobby_000_.peak_mindmap.TopSectionFragment"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentTop="true"
+          tools:layout="@layout/top_section_fragment"
+          />
+
+      <fragment
+          android:id="@+id/bottomsection"
+          android:name="com.victor.bobby_000_.peak_mindmap.BottomSectionFragment"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_above="@+id/sharesection"
+          android:layout_below="@+id/topsection"
+          android:layout_centerHorizontal="true"
+          tools:layout="@layout/bottom_layout_fragment"/>
+
+
+
+      <fragment
+          android:id="@+id/sharesection"
+          android:name="com.victor.bobby_000_.peak_mindmap.ShareSectionFragment"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:layout_alignParentStart="true"
+          tools:layout="@layout/share_layout_fragment"/>
+
+  </RelativeLayout>

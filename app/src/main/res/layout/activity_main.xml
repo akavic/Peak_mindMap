@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.victor.bobby_000_.peak_mindmap.MainActivity"
+    android:orientation="vertical">
+
+
+    <fragment
+        android:id="@+id/topsection"
+        android:name="com.victor.bobby_000_.peak_mindmap.TopSectionFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        tools:layout="@layout/top_section_fragment"
+        />
+
+    <fragment
+        android:id="@+id/bottomsection"
+        android:name="com.victor.bobby_000_.peak_mindmap.BottomSectionFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sharesection"
+        android:layout_below="@+id/topsection"
+        android:layout_centerHorizontal="true"
+        tools:layout="@layout/bottom_layout_fragment"/>
+
+
+
+    <fragment
+        android:id="@+id/sharesection"
+        android:name="com.victor.bobby_000_.peak_mindmap.ShareSectionFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        tools:layout="@layout/share_layout_fragment"/>
+
+</RelativeLayout>

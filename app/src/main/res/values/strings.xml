@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Peak_MindMap</string>
+    <string name="peak_brain_score">Peak Brain Score</string>
+    <string name="memory">Memory</string>
+    <string name="problem_solving">Problem Solving</string>
+    <string name="languages">Languages</string>
+    <string name="mental_agility">Mental Agility</string>
+    <string name="focus">Focus</string>
+    <string name="your_performance">Your Performance</string>
+    <string name="your_peak_brain_map">Your Peak Brain Map &#8482;</string>
+    <string name="review_and_compare">Review and compare how you\'re \n</string>
+    <string name="performing_in">performing in each brain skill category</string>
+    <string name="you">You</string>
+    <string name="age_group">Age Group</string>
+    <string name="profession">Profession</string>
+    <string name="share">Share</string>
+
+    <string-array name="planets_array">
+        <item>@string/you</item>
+        <item>@string/age_group</item>
+        <item>@string/profession</item>
+    </string-array>
+
+</resources>
