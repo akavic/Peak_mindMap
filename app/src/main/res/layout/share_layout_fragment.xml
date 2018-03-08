@@ -4,22 +4,24 @@
               android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/Peak_grey"
+              android:background="@color/Peak_light_grey"
                     >
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/Peak_grey"
+        android:background="@color/Peak_light_grey"
         app:srcCompat="?attr/actionModeShareDrawable"/>
 
-    <EditText
+    <TextView
         android:id="@+id/editText"
         android:layout_width="124dp"
-        android:layout_height="28dp"
+        android:layout_height="26dp"
+        android:background="@android:color/transparent"
         android:ems="10"
+        android:gravity="center_vertical"
         android:inputType="textPersonName"
         android:text="@string/share"
-        android:background="@android:color/transparent"/>
+        android:textSize="10dp"/>
 </LinearLayout>

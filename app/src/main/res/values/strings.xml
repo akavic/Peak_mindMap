@@ -14,6 +14,10 @@
     <string name="age_group">Age Group</string>
     <string name="profession">Profession</string>
     <string name="share">Share</string>
+    <string name="left">Left</string>
+    <string name="center">Center</string>
+    <string name="right">Right</string>
+
 
     <string-array name="planets_array">
         <item>@string/you</item>

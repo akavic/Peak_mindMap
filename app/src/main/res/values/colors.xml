@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="Peak_grey">#4a4a4a</color>
+    <color name="Peak_light_grey">#8E8E93</color>
+    <color name="button_primary_color">#3F51B5</color>
+    <color name="button_secondary_color">#FFFFFF</color>
 </resources>
